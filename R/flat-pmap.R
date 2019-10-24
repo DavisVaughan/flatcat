@@ -62,7 +62,7 @@ flat_pmap_lgl <- function(.l,
 
 #' @rdname flat-map2-df
 #' @export
-flat_pmap_row <- function(.l,
+flat_pmap_dfr <- function(.l,
                           .f,
                           ...,
                           .ptype = NULL,
@@ -74,7 +74,7 @@ flat_pmap_row <- function(.l,
 
 #' @rdname flat-map2-df
 #' @export
-flat_pmap_col <- function(.l,
+flat_pmap_dfc <- function(.l,
                           .f,
                           ...,
                           .ptype = NULL,

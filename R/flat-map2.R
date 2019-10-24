@@ -96,13 +96,13 @@ flat_map2_lgl <- function(.x,
 #' @inheritParams flat_map_dfr
 #'
 #' @examples
-#' flat_map2_row(list(1, 2:3), list(4, 5:6), ~data.frame(x = .x, y = .y))
+#' flat_map2_dfr(list(1, 2:3), list(4, 5:6), ~data.frame(x = .x, y = .y))
 #' @name flat-map2-df
 NULL
 
 #' @rdname flat-map2-df
 #' @export
-flat_map2_row <- function(.x,
+flat_map2_dfr <- function(.x,
                           .y,
                           .f,
                           ...,
@@ -115,7 +115,7 @@ flat_map2_row <- function(.x,
 
 #' @rdname flat-map2-df
 #' @export
-flat_map2_col <- function(.x,
+flat_map2_dfc <- function(.x,
                           .y,
                           .f,
                           ...,

@@ -2,22 +2,22 @@
 % Please edit documentation in R/flat-map2.R, R/flat-pmap.R
 \name{flat-map2-df}
 \alias{flat-map2-df}
-\alias{flat_map2_row}
-\alias{flat_map2_col}
-\alias{flat_pmap_row}
-\alias{flat_pmap_col}
+\alias{flat_map2_dfr}
+\alias{flat_map2_dfc}
+\alias{flat_pmap_dfr}
+\alias{flat_pmap_dfc}
 \title{Flat map multiple inputs simultaneouly and convert to a data frame}
 \usage{
-flat_map2_row(.x, .y, .f, ..., .ptype = NULL, .names_to = NULL,
+flat_map2_dfr(.x, .y, .f, ..., .ptype = NULL, .names_to = NULL,
   .name_repair = c("unique", "universal", "check_unique"))
 
-flat_map2_col(.x, .y, .f, ..., .ptype = NULL, .size = NULL,
+flat_map2_dfc(.x, .y, .f, ..., .ptype = NULL, .size = NULL,
   .name_repair = c("unique", "universal", "check_unique", "minimal"))
 
-flat_pmap_row(.l, .f, ..., .ptype = NULL, .names_to = NULL,
+flat_pmap_dfr(.l, .f, ..., .ptype = NULL, .names_to = NULL,
   .name_repair = c("unique", "universal", "check_unique"))
 
-flat_pmap_col(.l, .f, ..., .ptype = NULL, .size = NULL,
+flat_pmap_dfc(.l, .f, ..., .ptype = NULL, .size = NULL,
   .name_repair = c("unique", "universal", "check_unique", "minimal"))
 }
 \arguments{
@@ -85,5 +85,5 @@ These functions are variants of \code{\link[=flat_map_dfr]{flat_map_dfr()}} and 
 iterate over multiple arguments simultaneously.
 }
 \examples{
-flat_map2_row(list(1, 2:3), list(4, 5:6), ~data.frame(x = .x, y = .y))
+flat_map2_dfr(list(1, 2:3), list(4, 5:6), ~data.frame(x = .x, y = .y))
 }
