@@ -24,6 +24,8 @@ devtools::install_github("DavisVaughan/flatcat")
 
 ## Examples
 
+No size 1 restriction in each `.f` call
+
 ``` r
 library(flatcat)
 library(purrr)
@@ -33,4 +35,11 @@ map_dbl(list(1, 2:3, 4:6), ~.x)
 
 fmap_dbl(list(1, 2:3, 4:6), ~.x)
 #> [1] 1 2 3 4 5 6
+```
+
+A neat (but fairly inefficient) way to interleave vectors
+
+``` r
+fmap2_dbl(1:5, 6:10, ~c(.x, .y))
+#>  [1]  1  6  2  7  3  8  4  9  5 10
 ```
