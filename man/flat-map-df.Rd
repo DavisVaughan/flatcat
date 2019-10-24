@@ -2,14 +2,14 @@
 % Please edit documentation in R/flat-map.R
 \name{flat-map-df}
 \alias{flat-map-df}
-\alias{flat_map_row}
-\alias{flat_map_col}
+\alias{flat_map_dfr}
+\alias{flat_map_dfc}
 \title{Flat map and convert to a data frame}
 \usage{
-flat_map_row(.x, .f, ..., .ptype = NULL, .names_to = NULL,
+flat_map_dfr(.x, .f, ..., .ptype = NULL, .names_to = NULL,
   .name_repair = c("unique", "universal", "check_unique"))
 
-flat_map_col(.x, .f, ..., .ptype = NULL, .size = NULL,
+flat_map_dfc(.x, .f, ..., .ptype = NULL, .size = NULL,
   .name_repair = c("unique", "universal", "check_unique", "minimal"))
 }
 \arguments{
@@ -76,25 +76,25 @@ of length 1 will be recycled appropriately.}
 }
 \description{
 \itemize{
-\item \code{flat_map_row()} calls \code{map()}, and then row binds the results into a
+\item \code{flat_map_dfr()} calls \code{map()}, and then row binds the results into a
 data frame using \code{vec_rbind()}.
-\item \code{flat_map_col()} calls \code{map()}, and then column binds the results into a
+\item \code{flat_map_dfc()} calls \code{map()}, and then column binds the results into a
 data frame using \code{vec_cbind()}.
 }
 }
 \details{
-\code{flat_map_row()} and \code{flat_map_col()} try a bit harder to coerce the results
+\code{flat_map_dfr()} and \code{flat_map_dfc()} try a bit harder to coerce the results
 of \code{.f} to a data frame than \code{flat_map_vec()} would. For example, if a result
-of \code{.f} is a 1d vector, for \code{flat_map_row()} it would be coerced into a 1
+of \code{.f} is a 1d vector, for \code{flat_map_dfr()} it would be coerced into a 1
 row data frame with as many columns as number of elements in the vector.
 }
 \examples{
-flat_map_row(1:5, ~data.frame(x = 1))
+flat_map_dfr(1:5, ~data.frame(x = 1))
 
-flat_map_col(1:5, ~data.frame(x = 1))
+flat_map_dfc(1:5, ~data.frame(x = 1))
 
-# `flat_map_row()` "tries harder" to coerce vectors to a data frame
+# `flat_map_dfr()` "tries harder" to coerce vectors to a data frame
 try(flat_map_vec(1:5, ~.x, .ptype = data.frame(x = integer())))
 
-flat_map_row(1:5, ~.x)
+flat_map_dfr(1:5, ~.x)
 }

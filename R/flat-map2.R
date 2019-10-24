@@ -86,14 +86,14 @@ flat_map2_lgl <- function(.x,
 
 #' Flat map multiple inputs simultaneouly and convert to a data frame
 #'
-#' These functions are variants of [flat_map_row()] and [flat_map_col()] that
+#' These functions are variants of [flat_map_dfr()] and [flat_map_dfc()] that
 #' iterate over multiple arguments simultaneously.
 #'
 #' @param .x,.y Vectors of the same length. A vector of length 1 will be
 #'   recycled.
 #'
 #' @inheritParams purrr::map2
-#' @inheritParams flat_map_row
+#' @inheritParams flat_map_dfr
 #'
 #' @examples
 #' flat_map2_row(list(1, 2:3), list(4, 5:6), ~data.frame(x = .x, y = .y))

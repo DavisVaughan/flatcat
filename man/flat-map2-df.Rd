@@ -81,7 +81,7 @@ determines the number of arguments that \code{.f} will be called with. List
 names will be used if present.}
 }
 \description{
-These functions are variants of \code{\link[=flat_map_row]{flat_map_row()}} and \code{\link[=flat_map_col]{flat_map_col()}} that
+These functions are variants of \code{\link[=flat_map_dfr]{flat_map_dfr()}} and \code{\link[=flat_map_dfc]{flat_map_dfc()}} that
 iterate over multiple arguments simultaneously.
 }
 \examples{
