@@ -2,11 +2,10 @@ Package: flatcat
 Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Davis",
+           family = "Vaughan",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
+           email = "davis@rstudio.com")
 Description: What the package does (one paragraph).
 License: GPL-3 + file LICENSE
 Encoding: UTF-8
@@ -17,3 +16,4 @@ Imports:
     vctrs,
     purrr
 RoxygenNote: 6.1.1
+Roxygen: list(markdown = TRUE)
