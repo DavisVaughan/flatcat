@@ -13,3 +13,7 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/DavisVaughan/flatcat
 BugReports: https://github.com/DavisVaughan/flatcat/issues
+Imports: 
+    vctrs,
+    purrr
+RoxygenNote: 6.1.1
