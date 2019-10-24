@@ -109,7 +109,7 @@ arbitrary size." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Flat map</h1>
-    <small class="dont-index">Source: <a href='https://github.com/DavisVaughan/flatcat/blob/master/R/fmap.R'><code>R/fmap.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/DavisVaughan/flatcat/blob/master/R/flat-map.R'><code>R/flat-map.R</code></a></small>
     <div class="hidden name"><code>flat-map.Rd</code></div>
     </div>
 
@@ -120,23 +120,23 @@ of size <code>1</code> from each function call, a flat map can return an object 
 arbitrary size.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>fmap_vec</span>(<span class='no'>.x</span>, <span class='no'>.f</span>, <span class='no'>...</span>, <span class='kw'>.ptype</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>.name_spec</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+    <pre class="usage"><span class='fu'>flat_map_vec</span>(<span class='no'>.x</span>, <span class='no'>.f</span>, <span class='no'>...</span>, <span class='kw'>.ptype</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>.name_spec</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>.name_repair</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"minimal"</span>, <span class='st'>"unique"</span>, <span class='st'>"check_unique"</span>, <span class='st'>"universal"</span>))
 
-<span class='fu'>fmap_lst</span>(<span class='no'>.x</span>, <span class='no'>.f</span>, <span class='no'>...</span>, <span class='kw'>.name_spec</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>.name_repair</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"minimal"</span>,
-  <span class='st'>"unique"</span>, <span class='st'>"check_unique"</span>, <span class='st'>"universal"</span>))
+<span class='fu'>flat_map_lst</span>(<span class='no'>.x</span>, <span class='no'>.f</span>, <span class='no'>...</span>, <span class='kw'>.name_spec</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>.name_repair</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"minimal"</span>, <span class='st'>"unique"</span>, <span class='st'>"check_unique"</span>, <span class='st'>"universal"</span>))
 
-<span class='fu'>fmap_dbl</span>(<span class='no'>.x</span>, <span class='no'>.f</span>, <span class='no'>...</span>, <span class='kw'>.name_spec</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>.name_repair</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"minimal"</span>,
-  <span class='st'>"unique"</span>, <span class='st'>"check_unique"</span>, <span class='st'>"universal"</span>))
+<span class='fu'>flat_map_dbl</span>(<span class='no'>.x</span>, <span class='no'>.f</span>, <span class='no'>...</span>, <span class='kw'>.name_spec</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>.name_repair</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"minimal"</span>, <span class='st'>"unique"</span>, <span class='st'>"check_unique"</span>, <span class='st'>"universal"</span>))
 
-<span class='fu'>fmap_int</span>(<span class='no'>.x</span>, <span class='no'>.f</span>, <span class='no'>...</span>, <span class='kw'>.name_spec</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>.name_repair</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"minimal"</span>,
-  <span class='st'>"unique"</span>, <span class='st'>"check_unique"</span>, <span class='st'>"universal"</span>))
+<span class='fu'>flat_map_int</span>(<span class='no'>.x</span>, <span class='no'>.f</span>, <span class='no'>...</span>, <span class='kw'>.name_spec</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>.name_repair</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"minimal"</span>, <span class='st'>"unique"</span>, <span class='st'>"check_unique"</span>, <span class='st'>"universal"</span>))
 
-<span class='fu'>fmap_chr</span>(<span class='no'>.x</span>, <span class='no'>.f</span>, <span class='no'>...</span>, <span class='kw'>.name_spec</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>.name_repair</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"minimal"</span>,
-  <span class='st'>"unique"</span>, <span class='st'>"check_unique"</span>, <span class='st'>"universal"</span>))
+<span class='fu'>flat_map_chr</span>(<span class='no'>.x</span>, <span class='no'>.f</span>, <span class='no'>...</span>, <span class='kw'>.name_spec</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>.name_repair</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"minimal"</span>, <span class='st'>"unique"</span>, <span class='st'>"check_unique"</span>, <span class='st'>"universal"</span>))
 
-<span class='fu'>fmap_lgl</span>(<span class='no'>.x</span>, <span class='no'>.f</span>, <span class='no'>...</span>, <span class='kw'>.name_spec</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>.name_repair</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"minimal"</span>,
-  <span class='st'>"unique"</span>, <span class='st'>"check_unique"</span>, <span class='st'>"universal"</span>))</pre>
+<span class='fu'>flat_map_lgl</span>(<span class='no'>.x</span>, <span class='no'>.f</span>, <span class='no'>...</span>, <span class='kw'>.name_spec</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>.name_repair</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"minimal"</span>, <span class='st'>"unique"</span>, <span class='st'>"check_unique"</span>, <span class='st'>"universal"</span>))</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -203,8 +203,8 @@ are passed as second argument.</p></li>
     
 
 <ul>
-<li><p><code>vec_size(fmap_vec(.x, .f)) == sum(map_int(map(.x, .f), vec_size))</code></p></li>
-<li><p><code>vec_ptype(fmap_vec(.x, .ptype = ptype)) == ptype %||% vec_ptype_common(!!! map(.x, .f))</code></p></li>
+<li><p><code>vec_size(flat_map_vec(.x, .f)) == sum(map_int(map(.x, .f), vec_size))</code></p></li>
+<li><p><code>vec_ptype(flat_map_vec(.x, .ptype = ptype)) == ptype %||% vec_ptype_common(!!! map(.x, .f))</code></p></li>
 </ul>
 
 
@@ -212,13 +212,13 @@ are passed as second argument.</p></li>
     <pre class="examples"><div class='input'><span class='co'># `map()` functions require that each result from `.f` have size 1</span>
 <span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>map_dbl</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>:<span class='fl'>3</span>, <span class='fl'>4</span>:<span class='fl'>6</span>), ~<span class='no'>.x</span>))</div><div class='output co'>#&gt; Error in map_dbl(list(1, 2:3, 4:6), ~.x) : 
 #&gt;   could not find function "map_dbl"</div><div class='input'>
-<span class='co'># `fmap_dbl()` and friends don't care</span>
-<span class='fu'>fmap_dbl</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>:<span class='fl'>3</span>, <span class='fl'>4</span>:<span class='fl'>6</span>), ~<span class='no'>.x</span>)</div><div class='output co'>#&gt; [1] 1 2 3 4 5 6</div><div class='input'>
+<span class='co'># `flat_map_dbl()` and friends don't care</span>
+<span class='fu'>flat_map_dbl</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>:<span class='fl'>3</span>, <span class='fl'>4</span>:<span class='fl'>6</span>), ~<span class='no'>.x</span>)</div><div class='output co'>#&gt; [1] 1 2 3 4 5 6</div><div class='input'>
 <span class='co'># Returning arbitrary output types</span>
-<span class='fu'>fmap_vec</span>(<span class='fl'>1</span>:<span class='fl'>3</span>, ~<span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date</a></span>() + <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='no'>.x</span>))</div><div class='output co'>#&gt; [1] "2019-10-24" "2019-10-25" "2019-10-24" "2019-10-25" "2019-10-26"
+<span class='fu'>flat_map_vec</span>(<span class='fl'>1</span>:<span class='fl'>3</span>, ~<span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date</a></span>() + <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='no'>.x</span>))</div><div class='output co'>#&gt; [1] "2019-10-24" "2019-10-25" "2019-10-24" "2019-10-25" "2019-10-26"
 #&gt; [6] "2019-10-24" "2019-10-25" "2019-10-26" "2019-10-27"</div><div class='input'>
 <span class='co'># Returning data frames of arbitrary sizes</span>
-<span class='fu'>fmap_vec</span>(<span class='fl'>1</span>:<span class='fl'>3</span>, ~<span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq_len</a></span>(<span class='no'>.x</span>)))</div><div class='output co'>#&gt;   x
+<span class='fu'>flat_map_vec</span>(<span class='fl'>1</span>:<span class='fl'>3</span>, ~<span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq_len</a></span>(<span class='no'>.x</span>)))</div><div class='output co'>#&gt;   x
 #&gt; 1 1
 #&gt; 2 1
 #&gt; 3 2
@@ -226,7 +226,7 @@ are passed as second argument.</p></li>
 #&gt; 5 2
 #&gt; 6 3</div><div class='input'>
 <span class='co'># Name repair if required</span>
-<span class='fu'>fmap_dbl</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>2</span>), ~<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='no'>.x</span>), <span class='kw'>.name_spec</span> <span class='kw'>=</span> <span class='st'>"{outer}_{inner}"</span>)</div><div class='output co'>#&gt; x_a x_a 
+<span class='fu'>flat_map_dbl</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>2</span>), ~<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='no'>.x</span>), <span class='kw'>.name_spec</span> <span class='kw'>=</span> <span class='st'>"{outer}_{inner}"</span>)</div><div class='output co'>#&gt; x_a x_a 
 #&gt;   1   2 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
