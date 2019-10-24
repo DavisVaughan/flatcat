@@ -41,12 +41,12 @@ library(purrr)
 
 map_dbl(list(1, 2:3, 4:6), ~.x)
 
-fmap_dbl(list(1, 2:3, 4:6), ~.x)
+flat_map_dbl(list(1, 2:3, 4:6), ~.x)
 ```
 
 A neat (but fairly inefficient) way to interleave vectors
 
 ```{r}
-fmap2_dbl(1:5, 6:10, ~c(.x, .y))
+flat_map2_dbl(1:5, 6:10, ~c(.x, .y))
 ```
 
