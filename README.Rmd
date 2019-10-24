@@ -1,0 +1,44 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# flatcat
+
+<!-- badges: start -->
+[![Travis build status](https://travis-ci.org/DavisVaughan/flatcat.svg?branch=master)](https://travis-ci.org/DavisVaughan/flatcat)
+[![Codecov test coverage](https://codecov.io/gh/DavisVaughan/flatcat/branch/master/graph/badge.svg)](https://codecov.io/gh/DavisVaughan/flatcat?branch=master)
+<!-- badges: end -->
+
+The goal of flatcat is to provide flat map functions.
+
+## Installation
+
+And the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("DavisVaughan/flatcat")
+```
+
+## Examples
+
+```{r, error=TRUE}
+library(flatcat)
+library(purrr)
+
+map_dbl(list(1, 2:3, 4:6), ~.x)
+
+fmap_dbl(list(1, 2:3, 4:6), ~.x)
+```
+
