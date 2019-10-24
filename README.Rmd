@@ -50,3 +50,17 @@ A neat (but fairly inefficient) way to interleave vectors
 flat_map2_dbl(1:5, 6:10, ~c(.x, .y))
 ```
 
+With data frames
+
+```{r}
+flat_map_dfr(list(1, 2:3, 4:6), ~data.frame(x = .x))
+
+flat_map_dfc(
+  list(1, 2:3, 4, 5:6), 
+  ~{
+    name <- paste0("x_", paste0(.x, collapse = "_"))
+    tibble::tibble(!! name := .x)
+  }
+)
+```
+
