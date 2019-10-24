@@ -83,3 +83,45 @@ flat_map2_lgl <- function(.x,
                           .name_repair = c("minimal", "unique", "check_unique", "universal")) {
   flat_map2_vec(.x, .y, .f, ..., .ptype = logical(), .name_spec = .name_spec, .name_repair = .name_repair)
 }
+
+#' Flat map multiple inputs simultaneouly and convert to a data frame
+#'
+#' These functions are variants of [flat_map_row()] and [flat_map_col()] that
+#' iterate over multiple arguments simultaneously.
+#'
+#' @param .x,.y Vectors of the same length. A vector of length 1 will be
+#'   recycled.
+#'
+#' @inheritParams purrr::map2
+#' @inheritParams flat_map_row
+#'
+#' @examples
+#' flat_map2_row(list(1, 2:3), list(4, 5:6), ~data.frame(x = .x, y = .y))
+#' @name flat-map2-df
+NULL
+
+#' @rdname flat-map2-df
+#' @export
+flat_map2_row <- function(.x,
+                          .y,
+                          .f,
+                          ...,
+                          .ptype = NULL,
+                          .names_to = NULL,
+                          .name_repair = c("unique", "universal", "check_unique")) {
+  out <- map2(.x, .y, .f, ...)
+  vec_rbind(!!! out, .ptype = .ptype, .names_to = .names_to, .name_repair = .name_repair)
+}
+
+#' @rdname flat-map2-df
+#' @export
+flat_map2_col <- function(.x,
+                          .y,
+                          .f,
+                          ...,
+                          .ptype = NULL,
+                          .size = NULL,
+                          .name_repair = c("unique", "universal", "check_unique", "minimal")) {
+  out <- map2(.x, .y, .f, ...)
+  vec_cbind(!!! out, .ptype = .ptype, .size = .size, .name_repair = .name_repair)
+}

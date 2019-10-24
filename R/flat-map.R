@@ -93,3 +93,61 @@ flat_map_lgl <- function(.x,
                          .name_repair = c("minimal", "unique", "check_unique", "universal")) {
   flat_map_vec(.x, .f, ..., .ptype = logical(), .name_spec = .name_spec, .name_repair = .name_repair)
 }
+
+#' Flat map and convert to a data frame
+#'
+#' @description
+#'
+#' * `flat_map_row()` calls `map()`, and then row binds the results into a
+#'   data frame using `vec_rbind()`.
+#'
+#' * `flat_map_col()` calls `map()`, and then column binds the results into a
+#'   data frame using `vec_cbind()`.
+#'
+#' @details
+#'
+#' `flat_map_row()` and `flat_map_col()` try a bit harder to coerce the results
+#' of `.f` to a data frame than `flat_map_vec()` would. For example, if a result
+#' of `.f` is a 1d vector, for `flat_map_row()` it would be coerced into a 1
+#' row data frame with as many columns as number of elements in the vector.
+#'
+#' @inheritParams vctrs::vec_rbind
+#' @inheritParams purrr::map
+#'
+#' @examples
+#' flat_map_row(1:5, ~data.frame(x = 1))
+#'
+#' flat_map_col(1:5, ~data.frame(x = 1))
+#'
+#' # `flat_map_row()` "tries harder" to coerce vectors to a data frame
+#' try(flat_map_vec(1:5, ~.x, .ptype = data.frame(x = integer())))
+#'
+#' flat_map_row(1:5, ~.x)
+#' @name flat-map-df
+NULL
+
+#' @rdname flat-map-df
+#' @export
+flat_map_row <- function(.x,
+                         .f,
+                         ...,
+                         .ptype = NULL,
+                         .names_to = NULL,
+                         .name_repair = c("unique", "universal", "check_unique")) {
+  out <- map(.x, .f, ...)
+  vec_rbind(!!! out, .ptype = .ptype, .names_to = .names_to, .name_repair = .name_repair)
+}
+
+#' @rdname flat-map-df
+#' @export
+flat_map_col <- function(.x,
+                         .f,
+                         ...,
+                         .ptype = NULL,
+                         .size = NULL,
+                         .name_repair = c("unique", "universal", "check_unique", "minimal")) {
+  out <- map(.x, .f, ...)
+  vec_cbind(!!! out, .ptype = .ptype, .size = .size, .name_repair = .name_repair)
+}
+
+
