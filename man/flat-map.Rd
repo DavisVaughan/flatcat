@@ -104,4 +104,7 @@ fmap_vec(1:3, ~Sys.Date() + seq(0, .x))
 
 # Returning data frames of arbitrary sizes
 fmap_vec(1:3, ~data.frame(x = seq_len(.x)))
+
+# Name repair if required
+fmap_dbl(list(x = 1, x = 2), ~c(a = .x), .name_spec = "{outer}_{inner}")
 }

@@ -26,7 +26,7 @@ fmap2_vec <- function(.x,
                       .name_spec = NULL,
                       .name_repair = c("minimal", "unique", "check_unique", "universal")) {
   out <- map2(.x, .y, .f, ...)
-  vec_c(!!! out, .ptype = .ptype)
+  vec_c(!!! out, .ptype = .ptype, .name_spec = .name_spec, .name_repair = .name_repair)
 }
 
 #' @rdname flat-map2
@@ -37,7 +37,7 @@ fmap2_lst <- function(.x,
                       ...,
                       .name_spec = NULL,
                       .name_repair = c("minimal", "unique", "check_unique", "universal")) {
-  fmap2_vec(.x, .y, .f, ..., .ptype = list())
+  fmap2_vec(.x, .y, .f, ..., .ptype = list(), .name_spec = .name_spec, .name_repair = .name_repair)
 }
 
 #' @rdname flat-map2
@@ -48,7 +48,7 @@ fmap2_dbl <- function(.x,
                       ...,
                       .name_spec = NULL,
                       .name_repair = c("minimal", "unique", "check_unique", "universal")) {
-  fmap2_vec(.x, .y, .f, ..., .ptype = double())
+  fmap2_vec(.x, .y, .f, ..., .ptype = double(), .name_spec = .name_spec, .name_repair = .name_repair)
 }
 
 #' @rdname flat-map2
@@ -59,7 +59,7 @@ fmap2_int <- function(.x,
                       ...,
                       .name_spec = NULL,
                       .name_repair = c("minimal", "unique", "check_unique", "universal")) {
-  fmap2_vec(.x, .y, .f, ..., .ptype = integer())
+  fmap2_vec(.x, .y, .f, ..., .ptype = integer(), .name_spec = .name_spec, .name_repair = .name_repair)
 }
 
 #' @rdname flat-map2
@@ -70,7 +70,7 @@ fmap2_chr <- function(.x,
                       ...,
                       .name_spec = NULL,
                       .name_repair = c("minimal", "unique", "check_unique", "universal")) {
-  fmap2_vec(.x, .y, .f, ..., .ptype = character())
+  fmap2_vec(.x, .y, .f, ..., .ptype = character(), .name_spec = .name_spec, .name_repair = .name_repair)
 }
 
 #' @rdname flat-map2
@@ -81,5 +81,5 @@ fmap2_lgl <- function(.x,
                       ...,
                       .name_spec = NULL,
                       .name_repair = c("minimal", "unique", "check_unique", "universal")) {
-  fmap2_vec(.x, .y, .f, ..., .ptype = logical())
+  fmap2_vec(.x, .y, .f, ..., .ptype = logical(), .name_spec = .name_spec, .name_repair = .name_repair)
 }

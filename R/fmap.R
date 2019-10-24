@@ -26,6 +26,9 @@
 #'
 #' # Returning data frames of arbitrary sizes
 #' fmap_vec(1:3, ~data.frame(x = seq_len(.x)))
+#'
+#' # Name repair if required
+#' fmap_dbl(list(x = 1, x = 2), ~c(a = .x), .name_spec = "{outer}_{inner}")
 #' @name flat-map
 NULL
 
@@ -38,7 +41,7 @@ fmap_vec <- function(.x,
                      .name_spec = NULL,
                      .name_repair = c("minimal", "unique", "check_unique", "universal")) {
   out <- map(.x, .f, ...)
-  vec_c(!!! out, .ptype = .ptype)
+  vec_c(!!! out, .ptype = .ptype, .name_spec = .name_spec, .name_repair = .name_repair)
 }
 
 #' @rdname flat-map
@@ -48,7 +51,7 @@ fmap_lst <- function(.x,
                      ...,
                      .name_spec = NULL,
                      .name_repair = c("minimal", "unique", "check_unique", "universal")) {
-  fmap_vec(.x, .f, ..., .ptype = list())
+  fmap_vec(.x, .f, ..., .ptype = list(), .name_spec = .name_spec, .name_repair = .name_repair)
 }
 
 #' @rdname flat-map
@@ -58,7 +61,7 @@ fmap_dbl <- function(.x,
                      ...,
                      .name_spec = NULL,
                      .name_repair = c("minimal", "unique", "check_unique", "universal")) {
-  fmap_vec(.x, .f, ..., .ptype = double())
+  fmap_vec(.x, .f, ..., .ptype = double(), .name_spec = .name_spec, .name_repair = .name_repair)
 }
 
 #' @rdname flat-map
@@ -68,7 +71,7 @@ fmap_int <- function(.x,
                      ...,
                      .name_spec = NULL,
                      .name_repair = c("minimal", "unique", "check_unique", "universal")) {
-  fmap_vec(.x, .f, ..., .ptype = integer())
+  fmap_vec(.x, .f, ..., .ptype = integer(), .name_spec = .name_spec, .name_repair = .name_repair)
 }
 
 #' @rdname flat-map
@@ -78,7 +81,7 @@ fmap_chr <- function(.x,
                      ...,
                      .name_spec = NULL,
                      .name_repair = c("minimal", "unique", "check_unique", "universal")) {
-  fmap_vec(.x, .f, ..., .ptype = character())
+  fmap_vec(.x, .f, ..., .ptype = character(), .name_spec = .name_spec, .name_repair = .name_repair)
 }
 
 #' @rdname flat-map
@@ -88,5 +91,5 @@ fmap_lgl <- function(.x,
                      ...,
                      .name_spec = NULL,
                      .name_repair = c("minimal", "unique", "check_unique", "universal")) {
-  fmap_vec(.x, .f, ..., .ptype = logical())
+  fmap_vec(.x, .f, ..., .ptype = logical(), .name_spec = .name_spec, .name_repair = .name_repair)
 }

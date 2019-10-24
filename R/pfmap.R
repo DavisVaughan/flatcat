@@ -7,7 +7,7 @@ pfmap_vec <- function(.l,
                       .name_spec = NULL,
                       .name_repair = c("minimal", "unique", "check_unique", "universal")) {
   out <- pmap(.l, .f, ...)
-  vec_c(!!! out, .ptype = .ptype)
+  vec_c(!!! out, .ptype = .ptype, .name_spec = .name_spec, .name_repair = .name_repair)
 }
 
 #' @rdname flat-map2
@@ -17,7 +17,7 @@ pfmap_lst <- function(.l,
                       ...,
                       .name_spec = NULL,
                       .name_repair = c("minimal", "unique", "check_unique", "universal")) {
-  pfmap_vec(.l, .f, ..., .ptype = list())
+  pfmap_vec(.l, .f, ..., .ptype = list(), .name_spec = .name_spec, .name_repair = .name_repair)
 }
 
 #' @rdname flat-map2
@@ -27,7 +27,7 @@ pfmap_dbl <- function(.l,
                       ...,
                       .name_spec = NULL,
                       .name_repair = c("minimal", "unique", "check_unique", "universal")) {
-  pfmap_vec(.l, .f, ..., .ptype = double())
+  pfmap_vec(.l, .f, ..., .ptype = double(), .name_spec = .name_spec, .name_repair = .name_repair)
 }
 
 #' @rdname flat-map2
@@ -37,7 +37,7 @@ pfmap_int <- function(.l,
                       ...,
                       .name_spec = NULL,
                       .name_repair = c("minimal", "unique", "check_unique", "universal")) {
-  pfmap_vec(.l, .f, ..., .ptype = integer())
+  pfmap_vec(.l, .f, ..., .ptype = integer(), .name_spec = .name_spec, .name_repair = .name_repair)
 }
 
 #' @rdname flat-map2
@@ -47,7 +47,7 @@ pfmap_chr <- function(.l,
                       ...,
                       .name_spec = NULL,
                       .name_repair = c("minimal", "unique", "check_unique", "universal")) {
-  pfmap_vec(.l, .f, ..., .ptype = character())
+  pfmap_vec(.l, .f, ..., .ptype = character(), .name_spec = .name_spec, .name_repair = .name_repair)
 }
 
 #' @rdname flat-map2
@@ -57,5 +57,5 @@ pfmap_lgl <- function(.l,
                       ...,
                       .name_spec = NULL,
                       .name_repair = c("minimal", "unique", "check_unique", "universal")) {
-  pfmap_vec(.l, .f, ..., .ptype = logical())
+  pfmap_vec(.l, .f, ..., .ptype = logical(), .name_spec = .name_spec, .name_repair = .name_repair)
 }
